@@ -1,0 +1,9 @@
+## This configuration file give you an example
+## After doing neccessary changes, please save file as just "configs"
+
+[Keys]
+CONSUMER_KEY: ##Your APP ConsumerKey##
+CONSUMER_SECRET: ##Your APP ConsumerSecret##
+
+ACCESS_TOKEN: ##Your APP AccessToken##
+ACCESS_SECRET: ##Your APP AccessSecret##
