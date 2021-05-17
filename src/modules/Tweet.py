@@ -45,7 +45,20 @@ class Tweet(object):
         return True
 
     def getImage(self, url):
-        if url.find("https://") is not -1:
+        ### Import Regex Lib
+        import re
+
+        ### Regex applying
+        regex = re.compile(
+            r'^(?:http|ftp)s?://' # http:// or https://
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|' #domain...
+            r'localhost|' #localhost...
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' # ...or ip
+            r'(?::\d+)?' # optional port
+            r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+
+        ### URL is from external website
+        if re.match(regex, url) is not None:
             filename = 'temp.jpg'
             request = requests.get(url, stream=True)
             if request.status_code == 200:
