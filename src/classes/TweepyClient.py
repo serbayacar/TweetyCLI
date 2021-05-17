@@ -26,6 +26,9 @@ class TweepyClient():
             exit(0)
 
 
+    def getClient(self):
+        return self.client
+
     def getTweets(self):
         tweets = self.client.home_timeline()  
         return tweets

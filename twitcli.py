@@ -27,7 +27,8 @@ class TwitCLI(object):
         getattr(self, args.command)()
 
     def show(self):
-        Show(self.twitter);
+        twitterClient = self.twitter.getClient()
+        Show(twitterClient);
 
 
 if __name__ == "__main__":

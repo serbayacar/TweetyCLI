@@ -5,14 +5,15 @@ class HelpString:
         twitcli <command> [<args>]
         
         Commands are able to use :
-        show      Show tweets quickly""",
+        show      Show homeline tweets quickly""",
     }
 
     show = {
         "show_description": "Show tweets summary quickly",
         ## Arguments help texts
-        "arg_me": "Shows your tweets",
+        "arg_me": "Shows your last tweets",
         "arg_username": "Shows specific user's tweets",
+        "arg_count": "Number of tweets to be shown ",
     }
 
     @staticmethod
