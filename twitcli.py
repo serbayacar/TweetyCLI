@@ -4,8 +4,9 @@ import argparse
 import sys
 
 from src.classes.TweepyClient import TweepyClient
-from src.helpers.Printer import Printer
 from src.helpers.HelpStrings import HelpString
+
+from src.modules.Show import Show
 
 class TwitCLI(object):
     twitter = None
@@ -26,15 +27,7 @@ class TwitCLI(object):
         getattr(self, args.command)()
 
     def show(self):
-        printer = Printer()
-        table = printer.asTable('Timeline Tweets')
-        table = printer.addColumn(table, ["User","Tweets"])
-
-        tweets = self.twitter.getTweets()
-        for tweet in tweets:
-            table = printer.addRow(table, tweet)
-
-        table = printer.print(table)
+        Show(self.twitter);
 
 
 if __name__ == "__main__":
