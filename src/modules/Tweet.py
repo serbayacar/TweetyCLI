@@ -57,8 +57,11 @@ class Tweet(object):
             r'(?::\d+)?' # optional port
             r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
+        ### URL is from localhost
+        if os.path.exists(url):
+            url = url
         ### URL is from external website
-        if re.match(regex, url) is not None:
+        elif re.match(regex, url) is not None:
             filename = 'temp.jpg'
             request = requests.get(url, stream=True)
             if request.status_code == 200:
@@ -66,10 +69,13 @@ class Tweet(object):
                     for chunk in request:
                         image.write(chunk)
 
-                    return filename
+                    url = filename
             else:
                 print("Unable to download image")
                 exit(1)
+        else:
+            print("Give a valid URL, please.")
+            exit(1)
 
         return url
                 
