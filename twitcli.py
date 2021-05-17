@@ -7,6 +7,7 @@ from src.classes.TweepyClient import TweepyClient
 from src.helpers.HelpStrings import HelpString
 
 from src.modules.Show import Show
+from src.modules.Tweet import Tweet
 
 class TwitCLI(object):
     twitter = None
@@ -30,6 +31,9 @@ class TwitCLI(object):
         twitterClient = self.twitter.getClient()
         Show(twitterClient);
 
+    def tweet(self):
+        twitterClient = self.twitter.getClient()
+        Tweet(twitterClient)
 
 if __name__ == "__main__":
     TwitCLI()
