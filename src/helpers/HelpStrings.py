@@ -5,7 +5,8 @@ class HelpString:
         twitcli <command> [<args>]
         
         Commands are able to use :
-        show      Show homeline tweets quickly""",
+        show      Show homeline tweets quickly
+        tweet     Write a new tweet"""
     }
 
     show = {
